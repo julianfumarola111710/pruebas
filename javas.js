@@ -8,7 +8,7 @@ function mostrarMensaje() {
     let mensaje = document.getElementById("mensaje");
 
     if (nombre === "") {
-        mensaje.textContent = "Por favor ingrese un nombre.";
+        mensaje.textContent = "Por favor ingrese un nombre .";
         mensaje.className = "";
         return;
     }
@@ -21,18 +21,27 @@ function mostrarMensaje() {
     genero = genero.toUpperCase();
 
     if (genero === "H") {
-        mensaje.textContent = "Bienvenido, " + nombre;
+        mensaje.textContent = "Bienvenido, " + nombre +". Usted es un caballero super elegante.";
         mensaje.className = "azul";
+        imagen.src = "caballero.png";
+        imagen.style.display = "block";
     } else if (genero === "M") {
-        mensaje.textContent = "Bienvenida, " + nombre;
+        mensaje.textContent = "Bienvenida, " + nombre +". Usted es una dama super elegante.";
         mensaje.className = "rosado";
+        imagen.src = "dama elegante.png";
+        imagen.style.display = "block";
     } else {
         mensaje.textContent = "Opción inválida.";
         mensaje.className = "";
+        imagen.style.display = "none";
     }
 }
 
 function limpiar() {
     document.getElementById("nombre").value = "";
     document.getElementById("mensaje").textContent = "";
+
+    let imagen = document.getElementById("imagen");
+    imagen.style.display = "none";
+    imagen.src = "";
 }
